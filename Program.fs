@@ -1,9 +1,8 @@
 ﻿open System
 open System.Collections.Generic
 
-// Tokenizer: Converts input into tokens
-let tokenize input =
-    let rec recHelper chars acc =
+let tokenize (input: string) =
+    let rec recHelper (chars: char list) acc =
         match chars with
         | [] -> List.rev acc
         | ' ' :: rest -> recHelper rest acc
@@ -18,87 +17,86 @@ let tokenize input =
         | '>' :: rest -> recHelper rest (">" :: acc)
         | '<' :: rest -> recHelper rest ("<" :: acc)
         | '=' :: rest -> recHelper rest ("=" :: acc)
+        | ';' :: rest -> recHelper rest (";" :: acc)
         | x :: rest when Char.IsLetter x ->
-            let var = List.takeWhile Char.IsLetter chars |> System.String.Concat
-            let remaining = List.skipWhile Char.IsLetter chars
+            let var = chars |> List.takeWhile Char.IsLetter |> String.Concat
+            let remaining = chars |> List.skipWhile Char.IsLetter
             recHelper remaining (var :: acc)
         | x :: rest when Char.IsDigit x ->
-            let number = List.takeWhile Char.IsDigit chars |> System.String.Concat
-            let remaining = List.skipWhile Char.IsDigit chars
+            let number = chars |> List.takeWhile Char.IsDigit |> String.Concat
+            let remaining = chars |> List.skipWhile Char.IsDigit
             recHelper remaining (number :: acc)
         | _ -> failwith "Invalid character in input"
 
     recHelper (Seq.toList input) []
 
-// Expression Types
 type Expression =
     | Number of int
     | Variable of string
     | BinaryOp of string * Expression * Expression
 
-// Statement Types
 type Statement =
     | Assignment of string * Expression
     | If of Expression * Statement * Statement option
     | ExpressionStmt of Expression
 
-// Parsing Functions
-let parse tokens =
-    let rec parseExpression tokens =
+let parse (tokens: string list) =
+    let rec parsePrimary (tokens: string list) =
         match tokens with
         | [] -> failwith "Unexpected end of input in expression"
-        | (token: string) :: rest ->
+        | token :: rest ->
             match token with
-            | t when System.Char.IsDigit t.[0] -> 
-                let value = int t
-                Number value, rest
-            | t when System.Char.IsLetter t.[0] -> 
-                Variable t, rest
-            | "(" -> 
+            | t when Char.IsDigit t.[0] -> Number (int t), rest
+            | t when Char.IsLetter t.[0] -> Variable t, rest
+            | "(" ->
                 let expr, remaining = parseExpression rest
                 match remaining with
                 | ")" :: rest -> expr, rest
                 | _ -> failwith "Missing closing parenthesis"
             | _ -> failwith $"Unexpected token '{token}' in expression"
 
-    let rec parseBinaryOp left tokens =
+    and parseBinaryOp (left: Expression) (tokens: string list) =
         match tokens with
-        | [] -> left, []
-        | operator :: rest when operator = "+" || operator = "-" || operator = "*" || operator = "/" -> 
-            let right, remaining = parseExpression rest
+        | operator :: rest when operator = "+" || operator = "-" || operator = "*" || operator = "/" || operator = ">" || operator = "<" || operator = ">=" || operator = "<=" || operator = "==" || operator = "!=" ->
+            let right, remaining = parsePrimary rest
             let combined = BinaryOp(operator, left, right)
             parseBinaryOp combined remaining
         | _ -> left, tokens
 
-    let rec parseStatement tokens =
+    and parseExpression (tokens: string list) =
+        let primary, remaining = parsePrimary tokens
+        parseBinaryOp primary remaining
+
+    let rec parseStatement (tokens: string list) =
         match tokens with
         | [] -> failwith "Unexpected end of input in statement"
-        | (token: string) :: rest ->
+        | token :: rest ->
             match token with
-            | t when System.Char.IsLetter t.[0] -> 
+            | t when Char.IsLetter t.[0] && t <> "if" ->
                 match rest with
                 | "=" :: rest ->
                     let expr, remaining = parseExpression rest
                     Assignment(t, expr), remaining
                 | _ -> failwith "Expected '=' after variable"
-            | "if" -> 
+            | "if" ->
                 let condition, afterCondition = parseExpression rest
                 match afterCondition with
-                | "then" :: rest -> 
+                | "then" :: rest ->
                     let thenStmt, afterThen = parseStatement rest
                     match afterThen with
                     | "else" :: rest ->
                         let elseStmt, afterElse = parseStatement rest
                         If(condition, thenStmt, Some elseStmt), afterElse
                     | _ -> If(condition, thenStmt, None), afterThen
-                | _ -> failwith "Expected 'then' in if statement"
+                | _ -> failwith "Expected 'then' after if condition"
             | _ ->
                 let expr, remaining = parseExpression (token :: rest)
                 ExpressionStmt expr, remaining
 
-    let rec parseProgram tokens =
+    let rec parseProgram (tokens: string list) =
         match tokens with
         | [] -> []
+        | ";" :: rest -> parseProgram rest
         | _ ->
             let stmt, remaining = parseStatement tokens
             stmt :: parseProgram remaining
@@ -106,10 +104,8 @@ let parse tokens =
     parseProgram tokens
 
 let evaluateImperative (program: Statement list) =
-    // Mutable dictionary to store variable values
     let variables = Dictionary<string, int>()
 
-    // Function to evaluate an expression
     let rec evalExpression expr =
         match expr with
         | Number value -> value
@@ -128,9 +124,14 @@ let evaluateImperative (program: Statement list) =
             | "/" ->
                 if rightVal = 0 then failwith "Division by zero"
                 else leftVal / rightVal
+            | ">" -> if leftVal > rightVal then 1 else 0
+            | "<" -> if leftVal < rightVal then 1 else 0
+            | ">=" -> if leftVal >= rightVal then 1 else 0
+            | "<=" -> if leftVal <= rightVal then 1 else 0
+            | "==" -> if leftVal = rightVal then 1 else 0
+            | "!=" -> if leftVal <> rightVal then 1 else 0
             | _ -> failwith $"Unknown operator '{op}'"
 
-    // Function to execute a statement
     let rec execStatement stmt =
         match stmt with
         | Assignment (name, expr) ->
@@ -145,20 +146,17 @@ let evaluateImperative (program: Statement list) =
                 | Some elseStmt -> execStatement elseStmt
                 | None -> ()
         | ExpressionStmt expr ->
-            // Evaluate an expression statement but don't store the result
             ignore (evalExpression expr)
 
-    // Iterate through the program and execute each statement
     program |> List.iter execStatement
-
-    // Return the final state of variables
     variables
 
-// Test input
-let input = "x = 5 + 3 if x > 5 then y = x * 2 else y = 0"
+let input = "x = 5 + 3; if x > 5 then y = 10 else y = 0"
 let tokens = tokenize input
-let ast = parse tokens
-let finalState = evaluateImperative ast
 
-// Print final state of variables
+printfn "Tokens: %A" tokens
+let ast = parse tokens
+printfn "AST: %A" ast
+
+let finalState = evaluateImperative ast
 printfn $"Final State: {finalState}"
