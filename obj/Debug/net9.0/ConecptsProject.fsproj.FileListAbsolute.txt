@@ -27,3 +27,33 @@ E:\collage\final year\semester 1\concepts\ConecptsProject\obj\Debug\net9.0\refin
 E:\collage\final year\semester 1\concepts\ConecptsProject\obj\Debug\net9.0\ConecptsProject.pdb
 E:\collage\final year\semester 1\concepts\ConecptsProject\obj\Debug\net9.0\ConecptsProject.genruntimeconfig.cache
 E:\collage\final year\semester 1\concepts\ConecptsProject\obj\Debug\net9.0\ref\ConecptsProject.dll
+c:\Users\20100\ConceptsProject\bin\Debug\net9.0\ConecptsProject.exe
+c:\Users\20100\ConceptsProject\bin\Debug\net9.0\ConecptsProject.deps.json
+c:\Users\20100\ConceptsProject\bin\Debug\net9.0\ConecptsProject.runtimeconfig.json
+c:\Users\20100\ConceptsProject\bin\Debug\net9.0\ConecptsProject.dll
+c:\Users\20100\ConceptsProject\bin\Debug\net9.0\ConecptsProject.pdb
+c:\Users\20100\ConceptsProject\bin\Debug\net9.0\FSharp.Core.dll
+c:\Users\20100\ConceptsProject\bin\Debug\net9.0\cs\FSharp.Core.resources.dll
+c:\Users\20100\ConceptsProject\bin\Debug\net9.0\de\FSharp.Core.resources.dll
+c:\Users\20100\ConceptsProject\bin\Debug\net9.0\es\FSharp.Core.resources.dll
+c:\Users\20100\ConceptsProject\bin\Debug\net9.0\fr\FSharp.Core.resources.dll
+c:\Users\20100\ConceptsProject\bin\Debug\net9.0\it\FSharp.Core.resources.dll
+c:\Users\20100\ConceptsProject\bin\Debug\net9.0\ja\FSharp.Core.resources.dll
+c:\Users\20100\ConceptsProject\bin\Debug\net9.0\ko\FSharp.Core.resources.dll
+c:\Users\20100\ConceptsProject\bin\Debug\net9.0\pl\FSharp.Core.resources.dll
+c:\Users\20100\ConceptsProject\bin\Debug\net9.0\pt-BR\FSharp.Core.resources.dll
+c:\Users\20100\ConceptsProject\bin\Debug\net9.0\ru\FSharp.Core.resources.dll
+c:\Users\20100\ConceptsProject\bin\Debug\net9.0\tr\FSharp.Core.resources.dll
+c:\Users\20100\ConceptsProject\bin\Debug\net9.0\zh-Hans\FSharp.Core.resources.dll
+c:\Users\20100\ConceptsProject\bin\Debug\net9.0\zh-Hant\FSharp.Core.resources.dll
+c:\Users\20100\ConceptsProject\obj\Debug\net9.0\ConecptsProject.fsproj.AssemblyReference.cache
+c:\Users\20100\ConceptsProject\obj\Debug\net9.0\ConecptsProject.AssemblyInfoInputs.cache
+c:\Users\20100\ConceptsProject\obj\Debug\net9.0\ConecptsProject.AssemblyInfo.fs
+c:\Users\20100\ConceptsProject\obj\Debug\net9.0\ConecptsProject.fsproj.CoreCompileInputs.cache
+c:\Users\20100\ConceptsProject\obj\Debug\net9.0\ConecptsProject.sourcelink.json
+c:\Users\20100\ConceptsProject\obj\Debug\net9.0\Conecpts.A37EF328.Up2Date
+c:\Users\20100\ConceptsProject\obj\Debug\net9.0\ConecptsProject.dll
+c:\Users\20100\ConceptsProject\obj\Debug\net9.0\refint\ConecptsProject.dll
+c:\Users\20100\ConceptsProject\obj\Debug\net9.0\ConecptsProject.pdb
+c:\Users\20100\ConceptsProject\obj\Debug\net9.0\ConecptsProject.genruntimeconfig.cache
+c:\Users\20100\ConceptsProject\obj\Debug\net9.0\ref\ConecptsProject.dll
