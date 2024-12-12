@@ -5,6 +5,7 @@ namespace FSharp
 
 open System
 open System.Reflection
+<<<<<<< HEAD
 
 
 [<assembly: System.Reflection.AssemblyCompanyAttribute("ConecptsProject")>]
@@ -15,3 +16,15 @@ open System.Reflection
 [<assembly: System.Reflection.AssemblyTitleAttribute("ConecptsProject")>]
 [<assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")>]
 do()
+=======
+
+
+[<assembly: System.Reflection.AssemblyCompanyAttribute("ConecptsProject")>]
+[<assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")>]
+[<assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")>]
+[<assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+130a4ea20c34230c55ab59d9d65217f22f1010df")>]
+[<assembly: System.Reflection.AssemblyProductAttribute("ConecptsProject")>]
+[<assembly: System.Reflection.AssemblyTitleAttribute("ConecptsProject")>]
+[<assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")>]
+do()
+>>>>>>> f37100c95af9850b55d7110631199f275d2237ec

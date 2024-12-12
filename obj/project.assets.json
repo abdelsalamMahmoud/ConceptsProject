@@ -108,32 +108,25 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Abdel\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\20100\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\collage\\final year\\semester 1\\concepts\\ConecptsProject\\ConecptsProject.fsproj",
+      "projectUniqueName": "c:\\Users\\20100\\ConceptsProject\\ConecptsProject.fsproj",
       "projectName": "ConecptsProject",
-      "projectPath": "E:\\collage\\final year\\semester 1\\concepts\\ConecptsProject\\ConecptsProject.fsproj",
-      "packagesPath": "C:\\Users\\Abdel\\.nuget\\packages\\",
-      "outputPath": "E:\\collage\\final year\\semester 1\\concepts\\ConecptsProject\\obj\\",
+      "projectPath": "c:\\Users\\20100\\ConceptsProject\\ConecptsProject.fsproj",
+      "packagesPath": "C:\\Users\\20100\\.nuget\\packages\\",
+      "outputPath": "c:\\Users\\20100\\ConceptsProject\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-      ],
       "configFilePaths": [
-        "C:\\Users\\Abdel\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "C:\\Users\\20100\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net9.0"
       ],
       "sources": {
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "C:\\Program Files\\dotnet\\sdk\\9.0.100\\FSharp\\library-packs": {},
+        "C:\\Program Files\\dotnet\\sdk\\9.0.101\\FSharp\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -145,7 +138,7 @@
       "restoreAuditProperties": {
         "enableAudit": "true",
         "auditLevel": "low",
-        "auditMode": "all"
+        "auditMode": "direct"
       },
       "SdkAnalysisLevel": "9.0.100"
     },
@@ -176,7 +169,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.100/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.101/PortableRuntimeIdentifierGraph.json"
       }
     }
   }
