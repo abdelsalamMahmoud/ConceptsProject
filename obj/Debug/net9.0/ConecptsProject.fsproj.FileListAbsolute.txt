@@ -27,3 +27,4 @@ E:\collage\final year\semester 1\concepts\ConecptsProject\obj\Debug\net9.0\refin
 E:\collage\final year\semester 1\concepts\ConecptsProject\obj\Debug\net9.0\ConecptsProject.pdb
 E:\collage\final year\semester 1\concepts\ConecptsProject\obj\Debug\net9.0\ConecptsProject.genruntimeconfig.cache
 E:\collage\final year\semester 1\concepts\ConecptsProject\obj\Debug\net9.0\ref\ConecptsProject.dll
+E:\collage\final year\semester 1\concepts\ConecptsProject\obj\Debug\net9.0\ConecptsProject.sourcelink.json
