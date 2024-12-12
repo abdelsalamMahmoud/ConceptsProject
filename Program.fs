@@ -169,23 +169,23 @@ let evaluateFunctional (program: Statement list) =
         | Variable name->
             match List.tryFind (fun (key, _) -> key = name) variables with
             | Some (_, value)->value
-            | None -> failwith $"Undefined variable '{name}'"
+            | None -> failwith $"undefined variable '{name}'"
         | BinaryOp (op, left, right) ->
             let leftVal = evalExpression left variables
             let rightVal = evalExpression right variables
             match op with
-            | "+"->leftVal + rightVal
-            | "-"->leftVal - rightVal
-            | "*"->leftVal * rightVal
-            | "/"->
+            |"+"->leftVal + rightVal
+            |"-"->leftVal - rightVal
+            |"*"->leftVal * rightVal
+            |"/"->
                 if rightVal = 0 then failwith "division by zero"
                 else leftVal / rightVal
-            | ">" ->if leftVal > rightVal then 1 else 0
-            | "<" ->if leftVal < rightVal then 1 else 0
-            | ">=" ->if leftVal >= rightVal then 1 else 0
-            | "<=" ->if leftVal <= rightVal then 1 else 0
-            | "==" ->if leftVal = rightVal then 1 else 0
-            | "!=" ->if leftVal <> rightVal then 1 else 0
+            |">" ->if leftVal > rightVal then 1 else 0
+            |"<" ->if leftVal < rightVal then 1 else 0
+            |">=" ->if leftVal >= rightVal then 1 else 0
+            |"<=" ->if leftVal <= rightVal then 1 else 0
+            |"==" ->if leftVal = rightVal then 1 else 0
+            |"!=" ->if leftVal <> rightVal then 1 else 0
             | _ ->failwith $"unknown operator '{op}'"
 
     let rec execStatement variables stmt =
